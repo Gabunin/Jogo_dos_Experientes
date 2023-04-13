@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jogo_dos_Experientes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="376" Width="343">
+        Title="Jogo dos Experientes" Height="376" Width="343"
+        WindowStartupLocation="CenterScreen"
+        >
 
 
-    <Grid >
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -19,12 +22,21 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Row="0">
-            <StackPanel Orientation="Horizontal">
-                <RadioButton Margin="5" Content="X"></RadioButton>
-                <RadioButton Margin="5" Content="O"></RadioButton>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <RadioButton x:Name="rbX" Margin="5" Content="X" IsChecked="True" GroupName="JogadorAtual" Checked="rbX_Checked"></RadioButton>
+                <RadioButton x:Name="rbY" Margin="5" Content="O" GroupName="JogadorAtual" Checked="rbY_Checked"></RadioButton>
             </StackPanel>
-            
-            <Button Margin="10" Padding="5 5">Iniciar Partida</Button>
+
+            <Grid Margin="10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <Button Grid.Column="0" x:Name="btIniciarPartida" Padding="5 5" Click="btIniciarPartida_Click">Iniciar Partida</Button>
+                <Button Grid.Column="2" x:Name="btEncerrarPartida" Padding="5 5" Click="btEncerrarPartida_Click">Encerrar Partida</Button>
+            </Grid>
         </StackPanel>
 
         <Grid Grid.Row="1" MaxWidth="154" MaxHeight="154" Margin="10">
@@ -41,18 +53,23 @@
 
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0"></Button>
-            <Button Grid.Row="0" Grid.Column="1"></Button>
-            <Button Grid.Row="0" Grid.Column="2"></Button>
-            <Button Grid.Row="1" Grid.Column="0"></Button>
-            <Button Grid.Row="1" Grid.Column="1"></Button>
-            <Button Grid.Row="1" Grid.Column="2"></Button>
-            <Button Grid.Row="2" Grid.Column="0"></Button>
-            <Button Grid.Row="2" Grid.Column="1"></Button>
-            <Button Grid.Row="2" Grid.Column="2"></Button>
+            <Button x:Name="btCedula_0_0" Grid.Row="0" Grid.Column="0" Click="btCedula_0_0_Click"></Button>
+            <Button x:Name="btCedula_0_1" Grid.Row="0" Grid.Column="1" Click="btCedula_0_1_Click"></Button>
+            <Button x:Name="btCedula_0_2" Grid.Row="0" Grid.Column="2" Click="btCedula_0_2_Click"></Button>
+            <Button x:Name="btCedula_1_0" Grid.Row="1" Grid.Column="0" Click="btCedula_1_0_Click"></Button>
+            <Button x:Name="btCedula_1_1" Grid.Row="1" Grid.Column="1" Click="btCedula_1_1_Click"></Button>
+            <Button x:Name="btCedula_1_2" Grid.Row="1" Grid.Column="2" Click="btCedula_1_2_Click"></Button>
+            <Button x:Name="btCedula_2_0" Grid.Row="2" Grid.Column="0" Click="btCedula_2_0_Click"></Button>
+            <Button x:Name="btCedula_2_1" Grid.Row="2" Grid.Column="1" Click="btCedula_2_1_Click"></Button>
+            <Button x:Name="btCedula_2_2" Grid.Row="2" Grid.Column="2" Click="btCedula_2_2_Click"></Button>
 
 
         </Grid>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <Label Content="Jogador Atual:" FontWeight="Bold" FontSize="16"/>
+            <Label x:Name="lblJogadorAtual" Content="X" FontSize="16"></Label>
+        </StackPanel>
     </Grid>
 </Window>
 
